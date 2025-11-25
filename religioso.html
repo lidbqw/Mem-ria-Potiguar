@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória Potiguar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #5a3720;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f7f7f7;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #dd7c13;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #8B4513;
+        }
+
+        .hero {
+            background: linear-gradient(rgb(80, 48, 12), rgb(165, 69, 6)), url('https://source.unsplash.com/random/1600x900/?brazil,church') no-repeat center center/cover;
+            background-color: #f3e0c2;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            color: #dd7c13
+        }
+
+        .btn-explorar {
+            background-color: #8B4513;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-explorar:hover {
+            background-color: #6b3410;
+        }
+
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .city-section {
+            margin-bottom: 60px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .city-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .city-title {
+            font-size: 2rem;
+            color: #8B4513;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .attraction {
+            margin-bottom: 30px;
+        }
+
+        .attraction h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .attraction p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .attraction a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .attraction a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 10px 5%;
+            }
+
+            nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .city-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">MEMÓRIA POTIGUAR</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Turístico</a></li>
+                    <li><a href="#">Gastronômico</a></li>
+                    <li><a href="#">Histórico</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Religioso</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>MEMÓRIA POTIGUAR</h1>
+        <p>Descubra o Seridó, viva a religião potiguar!</p>
+        <p>A religiosidade do potiguar é uma tapeçaria de fé tecida no calor do sol e na brisa do mar. Suas expressões nascem da fusão entre a devoção profunda e a cultura popular, onde cada santo, cada festa, carrega a identidade de um povo. As romarias e procissões costumam reunir a comunidade em torno da fé, com cantos e promessas que ecoam tradições seculares e uma crença forte, passada de geração em geração.</p>
+        <button class="btn-explorar">Explorar</button>
+    </div>
+
+    <section>
+        <div class="city-section" id="caico">
+            <h2 class="city-title">Caicó</h2>
+            <div class="attraction">
+                <h3>Catedral de Sant'Ana</h3>
+                <p>A Catedral de Sant'Ana de Caicó é o coração da fé católica na região, sendo um imponente marco arquitetônico e religioso que serve como palco principal da tradicional Festa de Sant'Ana.</p>
+                <a href="#">saiba mais</a>
+            </div>
+            <div class="attraction">
+                <h3>Arco do Triunfo</h3>
+                <p>O Arco do Triunfo de Caicó, também conhecido como Arco de Santana, é um monumento erguido na Praça da Matriz da cidade como homenagem à passagem de Nossa Senhora de Fátima.</p>
+                <a href="#">saiba mais</a>
+            </div>
+        </div>
+
+        <div class="city-section" id="cruzeia">
+            <h2 class="city-title">Cruzeta</h2>
+            <div class="attraction">
+                <h3>Igreja de Nossa Senhora dos Remédios</h3>
+                <p>A Igreja Matriz de Nossa Senhora dos Remédios, localizada em Cruzeta, RN, é um importante centro de fé e devoção para a comunidade católica da cidade.</p>
+                <a href="#">saiba mais</a>
+            </div>
+            <div class="attraction">
+                <h3>Capela de São Pedro</h3>
+                <p>A Capela de São Pedro, localizada no Alto do Remédio em Cruzeia, RN, é um ponto de referência religiosa e turística da cidade.</p>
+                <a href="#">saiba mais</a>
+            </div>
+        </div>
+
+        <div class="city-section" id="jucurutu">
+            <h2 class="city-title">Jucurutu</h2>
+            <div class="attraction">
+                <h3>Igreja Matriz de São Sebastião</h3>
+                <p>A Igreja Matriz de São Sebastião em Jucurutu, Rio Grande do Norte, é um marco histórico e religioso cuja paróquia celebrou 150 anos de criação em 2024.</p>
+                <a href="#">saiba mais</a>
+            </div>
+            <div class="attraction">
+                <h3>Igreja Messiânica</h3>
+                <p>O Johrei Center Jucurutu é a unidade local da Igreja Messiânica Mundial do Brasil, localizada na Rua Major Lula, 108, no Centro da cidade.</p>
+                <a href="#">saiba mais</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Memória potiguar   2025</p>
+    </footer>
+
+    <script>
+        // Animação de revelação ao rolar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const citySections = document.querySelectorAll('.city-section');
+            
+            function checkVisibility() {
+                citySections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Verificar visibilidade ao carregar a página
+            checkVisibility();
+            
+            // Verificar visibilidade ao rolar
+            window.addEventListener('scroll', checkVisibility);
+            
+            // Botão explorar
+            document.querySelector('.btn-explorar').addEventListener('click', function() {
+                document.getElementById('caico').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
