@@ -28,19 +28,19 @@
     nav a:hover { color: #ffffff; }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       color: #dd7c13;
-      font-size: 18px;
+      font-size: 16px;
       transition: color 0.3s;
     }
 
-    .search-box input {
-      padding: 8px;
-      width: 260px;
-      border-radius: 15px;
-      border: none;
-    }
+.search-box input {
+    padding: 8px;
+    width: 260px;
+    border-radius: 15px;
+    border: none;
+}
 
     .fav-btn {
       background: #5a3620;
@@ -100,9 +100,9 @@
       border-bottom-right-radius: 15px;
     }
 
-    /* Bloco Caicó ajustado para o mesmo tamanho das imagens */
+  
     .topic-box {
-      width: 60%; /* mesmo tamanho das imagens */
+      width: 60%; 
       margin: 20px auto 0 auto;
       background: #5a3620;
       padding: 15px;
@@ -128,7 +128,7 @@
       border-radius: 12px;
       padding: 10px;
       text-align: center;
-      width: 32%; /* ocupa toda a largura do bloco */
+      width: 32%; 
       box-shadow: 0 0 5px #dd7c13;
     }
 
@@ -170,13 +170,14 @@
   <div class="logo">MEMÓRIA POTIGUAR</div>
 
   <nav>
-    <a href="#">Turístico</a>
-    <a href="#">Gastronômico</a>
-    <a href="#">Histórico</a>
-    <a href="#">Eventos</a>
-    <a href="#">Religioso</a>
-    <a href="#">Sobre</a>
-    <a href="#">Sair</a>
+    <a href="{{ url_for('pagina_inicial') }}">Página inicial</a>
+    <a href="{{ url_for('turismo') }}">Turístico</a>
+    <a href="{{ url_for('gastronomico') }}">Gastronômico</a>
+    <a href="{{ url_for('historico') }}">Histórico</a>
+    <a href="{{ url_for('eventos') }}">Eventos</a>
+    <a href="{{ url_for('religioso') }}">Religioso</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
   </nav>
 
   <button class="fav-btn" data-icon="star">⭐</button>

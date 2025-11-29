@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 40px 0;
+    background: #d6a26c;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    background: #5a3620;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 900px;
+    height: 520px;
+}
+
+.logo-area {
+    background: #f4dfc7;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-area img {
+    width: 70%;
+    height: auto;
+}
+
+.form-area {
+    width: 50%;
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    background: #dd7c13;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.input-box {
+    position: relative;
+    width: 80%;
+    margin: 20px 10px 20px;
+    align-items:center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 42px;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+}
+
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #444;
+}
+
+button {
+    background: #dd7c13;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #e0aa6b;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.login-link a {
+    color: #f1c28c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo-area">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    </div>
+
+    <div class="form-area">
+
+        <h2>Criar Conta</h2>
+
+        <form method="POST" action="{{ url_for('cadastro') }}">
+
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Informe seu e-mail" required>
+            </div>
+
+            <div class="input-box">
+                <input id="senha" type="password" name="senha" placeholder="Crie sua senha" required>
+                <i class="fa-solid fa-eye eye" onclick="toggleSenha('senha', this)"></i>
+            </div>
+
+            <div class="input-box">
+                <input id="confirmar" type="password" name="confirmar" placeholder="Confirme sua senha" required>
+                <i class="fa-solid fa-eye eye" onclick="toggleSenha('confirmar', this)"></i>
+            </div>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div class="login-link">
+            Já possui uma conta? <a href="{{ url_for('login') }}">Conecte-se.</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function toggleSenha(id, icon) {
+    const campo = document.getElementById(id);
+    if (campo.type === "password") {
+        campo.type = "text";
+        icon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+        campo.type = "password";
+        icon.classList.replace("fa-eye-slash", "fa-eye");
+    }
+}
+</script>
+
+</body>
+</html>

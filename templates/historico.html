@@ -25,16 +25,15 @@
       font-weight: bold;
     }
 
-    nav a:hover { color: #ffffff; }
+     nav a:hover { color: #ffffff; }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       color: #dd7c13;
-      font-size: 18px;
+      font-size: 16px;
       transition: color 0.3s;
     }
-
     .search-box input {
       padding: 8px;
       width: 260px;
@@ -56,7 +55,6 @@
       background: #ffffff;
     }
 
-    /* INFO-BOX */
     .info-box {
       width: 60%;
       margin: 20px auto;
@@ -150,13 +148,12 @@
     .card img {
       width: 100%;
       height: 180px; /* Altura fixa para padronização */
-      object-fit: cover; /* Mantém proporção sem distorcer */
-      border-radius: 10px;
+      object-fit: cover; 
       margin-bottom: 10px;
     }
 
     .card p {
-      flex-grow: 1; /* Faz o parágrafo ocupar espaço disponível */
+      flex-grow: 1;
       margin: 0;
       line-height: 1.4;
       text-align: left;
@@ -194,13 +191,14 @@
   <div class="logo">MEMÓRIA POTIGUAR</div>
 
   <nav>
-    <a href="#">Turístico</a>
-    <a href="#">Gastronômico</a>
-    <a href="#">Histórico</a>
-    <a href="#">Eventos</a>
-    <a href="#">Religioso</a>
-    <a href="#">Sobre</a>
-    <a href="#">Sair</a>
+    <a href="{{ url_for('pagina_inicial') }}">Página inicial</a>
+    <a href="{{ url_for('turismo') }}">Turístico</a>
+    <a href="{{ url_for('gastronomico') }}">Gastronômico</a>
+    <a href="{{ url_for('historico') }}">Histórico</a>
+    <a href="{{ url_for('eventos') }}">Eventos</a>
+    <a href="{{ url_for('religioso') }}">Religioso</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+    <a href="{{ url_for('cadastro') }}">Sair</a>
   </nav>
 
   <button class="fav-btn" data-icon="star">⭐</button>

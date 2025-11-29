@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra Inicial</title>
+  <style>
+     body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #e6c79c;
+    }
+
+    header {
+      background: #5a3620;
+      color: white;
+      padding: 30px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    nav a:hover { color: #ffffff; }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #dd7c13;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .search-box input {
+      padding: 8px;
+      width: 260px;
+      border-radius: 15px;
+      border: none;
+    }
+
+    .fav-btn {
+      background: #5a3620;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #f1c28c;
+      margin-left: 15px;
+    }
+
+    .fav-btn:hover {
+      color: #5a3620;
+      background: #ffffff;
+    }
+
+    
+    .info-box {
+      width: 60%;
+      margin: 20px auto;
+      background: #572F16;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      color: #DD7C13;
+    }
+
+    .info-box h2 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      color: #DD7C13;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      width: 60%;
+      margin: 20px auto 0 auto;
+      padding: 0;
+    }
+
+    .image-row img {
+      width: 33.33%;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .image-row img:first-child {
+      border-left: 2px solid #5a3620;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+
+    .image-row img:nth-child(2) {
+      border: none;
+    }
+
+    .image-row img:last-child {
+      border-right: 2px solid #5a3620;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    /* Blocos de tópicos (Caicó e Jucurutu) */
+    .topic-box {
+      width: 60%;
+      margin: 20px auto 0 auto;
+      background: #5a3620;
+      padding: 15px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .topic-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card {
+      background: #E0AA6B;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      width: 32%;
+      box-shadow: 0 0 5px #dd7c13;
+      color: #3f2a1a;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    .card-title {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 5px 10px;
+      background: #dd7c13;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .read-more-btn:hover {
+      background: #bb5f0f;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MEMÓRIA POTIGUAR</div>
+   <nav>
+    <a href="{{ url_for('pagina_inicial') }}">Página inicial</a>
+    <a href="{{ url_for('turismo') }}">Turístico</a>
+    <a href="{{ url_for('gastronomico') }}">Gastronômico</a>
+    <a href="{{ url_for('historico') }}">Histórico</a>
+    <a href="{{ url_for('eventos') }}">Eventos</a>
+    <a href="{{ url_for('religioso') }}">Religioso</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </nav>
+  <button class="fav-btn" data-icon="star">⭐</button>
+
+  <div class="search-box">
+    <input type="text" placeholder="🔍 Buscar">
+  </div>
+</header>
+
+<div class="info-box">
+  <h2>Decubra o Seridó, viva a religião potiguar!</h2>
+  <p>
+ A religiosidade do potiguar é uma tapeçaria de fé tecida no calor 
+ do sol e na brisa do mar. Suas expressões nascem da fusão entre a 
+ devoção profunda e a cultura popular, onde cada santo, cada festa, 
+ carrega a identidade de um povo. As romarias e procissões costumam 
+ reunir a comunidade em torno da fé, com cantos e promessas que ecoam 
+ tradições seculares e uma crença forte, passada de geração em geração. 
+  </p>
+</div>
+
+<div class="image-row">
+  <img src="image (3).png">
+  <img src="image (2).png" alt="Foto 2">
+  <img src="0 (1).png" alt="Foto 3">
+</div>
+
+<!-- Bloco Caicó -->
+<div class="topic-box">
+  <h2>Caicó</h2>
+  <div class="card-row">
+
+    <div class="card">
+      <img src="0 (2).png" alt="Imagem 1">
+      <p>
+        <span class="card-title">Catedral de Sant'Ana</span> A Catedral de Sant'Ana de Caicó é o coração da fé católica na região, sendo um imponente marco arquitetônico e religioso que serve como palco principal da tradicional Festa de Sant'Ana.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="0 (3).png" alt="Imagem 2">
+      <p>
+        <span class="card-title">Arco do Triunfo</span> O Arco do Triunfo de Caicó, também conhecido como Arco de Santana, é um monumento erguido na Praça da Matriz da cidade como homenagem à passagem de Nossa Senhora de Fátima.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CRUZETA-->
+<div class="topic-box">
+  <h2>Cuzeta</h2>
+  <div class="card-row">
+
+    <div class="card">
+      <img src="0.png" alt="Imagem 1">
+      <p>
+        <span class="card-title">Igreja de Nossa Senhora dos Remédios</span> A Igreja Matriz de Nossa Senhora dos Remédios, localizada em Cruzeta, RN, é um importante centro de fé e devoção para a comunidade católica da cidade.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="image (2).png" alt="Imagem 2">
+      <p>
+        <span class="card-title">Capela de São Pedro</span> A Capela de São Pedro, localizada no Alto do Remédio em Cruzeia, RN, é um ponto de referência religiosa e turística da cidade.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOVO BLOCO JUCURUTU -->
+<div class="topic-box">
+  <h2>Jucurutu</h2>
+  <div class="card-row">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="image.png" alt="Imagem 1">
+      <p>
+        <span class="card-title">Igreja Matriz de São Sebastião</span> A Igreja Matriz de São Sebastião em Jucurutu, Rio Grande do Norte, é um marco histórico e religioso cuja paróquia celebrou 150 anos de criação em 2024.
+      <button class="read-more-btn">Saiba mais</button>
+    </p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="image (1).png" alt="Imagem 2">
+      <p>
+        <span class="card-title">Igreja Messiânica</span> O Johrei Center Jucurutu é a unidade local da Igreja Messiânica Mundial do Brasil, localizada na Rua Major Lula, 108, no Centro da cidade.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+</div>
+
+</body>
+</html>
