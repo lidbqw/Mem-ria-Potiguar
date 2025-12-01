@@ -1,2 +1,2 @@
-# Mem-ria-Potiguar
+# Memória-Potiguar
 Projeto do PP
