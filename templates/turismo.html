@@ -37,8 +37,8 @@ header{
 nav a{margin:0 10px;text-decoration:none;color:#dd7c13;font-size:16px;transition:color .3s;font-family:Georgia,serif}
 nav a:hover{color:#ffffff}
 .search-box input{padding:8px;width:260px;border-radius:15px;border:none}
-.fav-btn{background:#5a3620;border:none;font-size:26px;cursor:pointer;color:#f1c28c;margin-left:15px}
-.fav-btn:hover{color:#5a3620;background:#ffffff}
+.fav-btn{background:#5a3620;border:none;font-size:26px;cursor:pointer;color:#f1c28c;margin-left:15px; text-decoration: none;}
+.fav-btn:hover{color:#5a3620;background:#ffffff;text-decoration: none;}
 
 
 .container{max-width:var(--container);margin:26px auto;padding:0 12px}
@@ -71,7 +71,7 @@ nav a:hover{color:#ffffff}
     <a href="{{ url_for('logout') }}">Sair</a>
   </nav>
 
-  <button class="fav-btn">⭐</button>
+  <a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
 
   <div class="search-box">
     <input type="text" placeholder="🔍 Buscar">

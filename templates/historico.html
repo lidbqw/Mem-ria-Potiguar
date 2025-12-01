@@ -48,6 +48,7 @@
       cursor: pointer;
       color: #f1c28c;
       margin-left: 15px;
+      text-decoration: none;
     }
 
     .fav-btn:hover {
@@ -65,6 +66,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       border-radius: 15px;
       color: #DD7C13;
+      text-decoration: none;
     }
 
     .info-box h2 {
@@ -201,7 +203,7 @@
     <a href="{{ url_for('cadastro') }}">Sair</a>
   </nav>
 
-  <button class="fav-btn" data-icon="star">⭐</button>
+  <a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
 
   <div class="search-box">
     <input type="text" placeholder="🔍 Buscar">

@@ -58,6 +58,10 @@ def religioso():
 def sobre():
     return "<h1>Página de eventos ainda em construção</h1>"
 
+@app.route("/favoritos")
+def favoritos():
+    return "<h1>Página de eventos ainda em construção</h1>"
+
 @app.route("/logout")
 def logout():
     return redirect(url_for("login"))

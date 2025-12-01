@@ -60,8 +60,9 @@ nav a:hover{color:#ffffff}
   cursor:pointer;
   color:#f1c28c;
   margin-left:15px;
+  text-decoration: none;
 }
-.fav-btn:hover{color:#5a3620;background:#ffffff}
+.fav-btn:hover{color:#5a3620;background:#ffffff;text-decoration: none;}
 
 .header-spacer{height:12px}
 .hero{
@@ -79,7 +80,7 @@ nav a:hover{color:#ffffff}
   padding:22px;
   box-shadow:0 6px 14px rgba(0,0,0,0.06);
 }
-.hero-title{font-family:"Playfair Display",serif;font-size:22px;margin:0 0 8px 0;color:var(--header)}
+.hero-title{font-family:"Playfair Display",serif;font-size:22px;margin:0 0 8px 0;color:#5a3620;}
 .hero-cta{background:var(--accent);padding:10px 18px;color:#fff;border-radius:20px;text-decoration:none;font-weight:700}
 .big-img{width:100%;max-width:920px;height:220px;border-radius:40px;object-fit:cover;box-shadow:0 12px 28px rgba(0,0,0,0.1)}
 .section-title{max-width:var(--container);margin:28px auto 12px;padding:0 12px;display:flex;align-items:center}
@@ -112,7 +113,7 @@ nav a:hover{color:#ffffff}
     <a href="{{ url_for('logout') }}">Sair</a>
   </nav>
 
-<button class="fav-btn">⭐</button>
+<a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
 
   <div class="search-box">
     <input type="text" placeholder="🔍 Buscar">

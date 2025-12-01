@@ -49,11 +49,13 @@
       cursor: pointer;
       color: #f1c28c;
       margin-left: 15px;
+      text-decoration: none;
     }
 
     .fav-btn:hover {
       color: #5a3620;
       background: #ffffff;
+      text-decoration: none;
     }
 
     
@@ -188,7 +190,7 @@
     <a href="{{ url_for('sobre') }}">Sobre</a>
     <a href="{{ url_for('logout') }}">Sair</a>
   </nav>
-  <button class="fav-btn" data-icon="star">⭐</button>
+  <a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
 
   <div class="search-box">
     <input type="text" placeholder="🔍 Buscar">
