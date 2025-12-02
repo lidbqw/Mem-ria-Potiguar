@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Favoritos — Memória Potiguar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#eedfc7;
+  --header:#5b321f;
+  --accent:#d97a11;
+  --card:#e8bfa0;
+  --card-inner:#f1e0c8;
+  --muted:#6a4b36;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #e6c79c;
+    }
+
+header{
+  background:#5a3620;
+  color:white;
+  padding:30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{font-size:30px;font-weight:bold;font-family:Georgia,serif}
+nav a{margin:0 10px;text-decoration:none;color:#dd7c13;font-size:16px;transition:color .3s;font-family:Georgia,serif}
+nav a:hover{color:#ffffff}
+.search-box input{padding:8px;width:260px;border-radius:15px;border:none}
+.fav-btn{background:#5a3620;border:none;font-size:26px;cursor:pointer;color:#f1c28c;margin-left:15px; text-decoration: none;}
+.fav-btn:hover{color:#5a3620;background:#ffffff;text-decoration: none;}
+
+.container{max-width:var(--container);margin:26px auto;padding:0 12px}
+.hero-box{background:var(--header);color:#fff;padding:28px;border-radius:26px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.hero-cta{background:var(--accent);padding:10px 18px;border-radius:20px;color:#fff;text-decoration:none;font-weight:700}
+.card-wrap{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:28px;margin-top:12px}
+.card{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 6px 14px rgba(0,0,0,0.04)}
+.card-inner{background:var(--card-inner);border-radius:12px;padding:12px}
+.thumb{width:100%;height:160px;border-radius:10px;object-fit:cover;margin-bottom:12px;background:#d0d0d0}
+.remove-btn{background:#d97a11;color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;margin-top:8px}
+.remove-btn:hover{background:#b85d0d}
+.empty-message{text-align:center;color:#6a4b36;font-size:18px;margin:40px 0}
+@media(max-width:830px){.card-wrap{grid-template-columns:1fr}.hero-box{flex-direction:column}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MEMÓRIA POTIGUAR</div>
+
+  <nav>
+    <a href="{{ url_for('pagina_inicial') }}">Página inicial</a>
+    <a href="{{ url_for('turismo') }}">Turístico</a>
+    <a href="{{ url_for('gastronomico') }}">Gastronômico</a>
+    <a href="{{ url_for('historico') }}">Histórico</a>
+    <a href="{{ url_for('eventos') }}">Eventos</a>
+    <a href="{{ url_for('religioso') }}">Religioso</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </nav>
+
+  <a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
+
+  <div class="search-box">
+    <input type="text" placeholder="🔍 Buscar">
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="hero-box">
+    <div>
+      <h2 style="margin-top:0">Seus Favoritos</h2>
+      <p>Locais e experiências que você marcou como favoritos.</p>
+    </div>
+    <a class="hero-cta" href="{{ url_for('pagina_inicial') }}">Explorar mais</a>
+  </div>
+
+  {% if favoritos %}
+  <section class="card-wrap">
+    {% for favorito in favoritos %}
+    <article class="card">
+      <div class="card-inner">
+        <img class="thumb" src="{{ favorito.imagem }}" alt="{{ favorito.item }}">
+        <h4 style="margin:8px 0;color:#5a3620">{{ favorito.item }}</h4>
+        <p style="font-size:14px;color:#6a4b36;margin:4px 0">{{ favorito.descricao }}</p>
+        <small style="color:#888">{{ favorito.categoria }}</small>
+        <br>
+        <a href="{{ url_for('remover_favorito', index=loop.index0) }}" class="remove-btn" style="display:inline-block;text-decoration:none;color:white;">Remover dos Favoritos</a>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+  {% else %}
+  <div class="empty-message">
+    <h3>Você ainda não tem favoritos</h3>
+    <p>Explore as seções do site e marque seus locais preferidos!</p>
+  </div>
+  {% endif %}
+
+</main>
+
+</body>
+</html>
