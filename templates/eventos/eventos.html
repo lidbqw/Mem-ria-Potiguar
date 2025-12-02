@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra Inicial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #e6c79c;
+    }
+
+
+    header {
+      background: #5a3620;
+      color: white;
+      padding: 30px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+
+     nav a:hover { color: #ffffff; }
+
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #dd7c13;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .search-box input {
+      padding: 8px;
+      width: 260px;
+      border-radius: 15px;
+      border: none;
+    }
+
+
+    .fav-btn {
+      background: #5a3620;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #f1c28c;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+
+
+    .fav-btn:hover {
+      color: #5a3620;
+      background: #ffffff;
+    }
+
+
+    .info-box {
+      width: 60%;
+      margin: 20px auto;
+      background: #572F16;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      color: #DD7C13;
+      text-decoration: none;
+    }
+
+
+    .info-box h2 {
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+
+    .info-box p {
+      color: #DD7C13;
+      line-height: 1.5;
+    }
+
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      width: 60%;
+      margin: 20px auto 0 auto;
+      padding: 0;
+    }
+
+
+    .image-row img {
+      width: 33.33%;
+      height: 200px; /* Altura fixa para padronização */
+      object-fit: cover; /* Mantém proporção da imagem */
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .image-row img:first-child {
+      border-left: 2px solid #5a3620;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+
+
+    .image-row img:nth-child(2) {
+      border: none;
+    }
+
+
+    .image-row img:last-child {
+      border-right: 2px solid #5a3620;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+
+    /* Blocos de tópicos (Caicó, Jucurutu e Cruzeta) */
+    .topic-box {
+      width: 60%;
+      margin: 20px auto 0 auto;
+      background: #5a3620;
+      padding: 15px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+
+    .topic-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 22px;
+    }
+
+
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+
+    .card {
+      background: #E0AA6B;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      width: 32%;
+      box-shadow: 0 0 5px #dd7c13;
+      color: #3f2a1a;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .card img {
+      width: 100%;
+      height: 180px; /* Altura fixa para padronização */
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+
+    .card p {
+      flex-grow: 1;
+      margin: 0;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+
+    .card-title {
+      color: #ffffff;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+
+    .read-more-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #dd7c13;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+
+    .read-more-btn:hover {
+      background: #bb5f0f;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+<header>
+  <div class="logo">MEMÓRIA POTIGUAR</div>
+
+
+  <nav>
+    <a href="{{ url_for('pagina_inicial') }}">Página inicial</a>
+    <a href="{{ url_for('turismo') }}">Turístico</a>
+    <a href="{{ url_for('gastronomico') }}">Gastronômico</a>
+    <a href="{{ url_for('historico') }}">Histórico</a>
+    <a href="{{ url_for('eventos') }}">Eventos</a>
+    <a href="{{ url_for('religioso') }}">Religioso</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+    <a href="{{ url_for('cadastro') }}">Sair</a>
+  </nav>
+
+
+  <a class="fav-btn" href="{{ url_for('favoritos') }}">⭐</a>
+
+
+  <div class="search-box">
+    <input type="text" placeholder="🔍 Buscar">
+  </div>
+</header>
+
+
+<div class="info-box">
+  <h2>Descubra o Seridó, viva aos eventos potiguares!</h2>
+  <p>
+    A região potiguar do Rio Grande do Norte vive seus eventos como quem reencontra a própria identidade.
+    As celebrações unem famílias, vizinhos e visitantes em torno de rituais que nasceram do cotidiano simples, mas carregado de significado.
+    Em cada evento, seja religioso, folclórico ou comunitário, pulsa o mesmo sentimento: o de preservar a essência potiguar, compartilhando alegria,
+    fé e cultura com quem chega — e com quem nunca deixou de pertencer.
+  </p>
+</div>
+
+
+<div class="image-row">
+  <img src="evento.jpg" alt="evento">
+  <img src="Complexo-Oiticica-5-768x578.jpeg" alt="Complexo Oiticica">
+  <img src="183600.jpg" alt="Paisagem Seridó">
+</div>
+
+
+<!-- Bloco Caicó -->
+<div class="topic-box">
+  <h2>Caicó</h2>
+  <div class="card-row">
+
+
+    <div class="card">
+      <img src="CARNAVAL.jpg" alt="Carnaval caicó>
+      <p>
+        <span class="card-title">Carnaval de Caicó</span> Um dos carnavais mais tradicionais do Rio Grande do Norte. Com blocos de rua, marchinhas, frevo, axé, forró-elétrico e muita animação, atrai foliões de várias regiões
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+
+    <div class="card">
+      <img src="Festa de Santana Foto.jpg" alt="Festa de Santana">
+      <p>
+        <span class="card-title">Festa de Sant'Ana de Caicó </span> A mais tradicional festa religiosa e cultural da cidade, com mais de 260 anos de história. O evento reúne rituais religiosos, manifestações culturais, música, celebrações populares e é considerado o maior do Seridó
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!-- Bloco Jucurutu - CORRIGIDO -->
+<div class="topic-box">
+  <h2>Jucurutu</h2>
+
+
+  <div class="card-row">
+
+
+    <!-- CARD 1 - CORRIGIDO -->
+    <div class="card">
+      <img src="natal.jpg" alt="Eventos de Natal / fim de ano – RN Celebra Aqui">
+      <p>
+        <span class="card-title">Eventos de Natal / fim de ano – RN Celebra Aqui</span> Tradicional festa de Natal/virada de ano da cidade, com grandes shows e animação popular. Por exemplo, em 2024 a festa contou com artistas populares e reuniu muitos moradores e visitantes.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+
+    <!-- CARD 2 - CORRIGIDO -->
+    <div class="card">
+      <img src="Confira-as-fotos-da-festa-de-aniversário-da-Campo-Real-4.jpg" alt="daguia">
+      <p>
+        <span class="card-title">Festa de Nossa Senhora Daguia</span>Uma festa religiosa e de comunidade realizada no distrito Boi Selado (pertencente a Jucurutu), com shows musicais e programação cultural. A edição mais recente divulgada ocorreu em 2025.  
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Bloco Cruzeta -->
+<div class="topic-box">
+  <h2>Cruzeta</h2>
+
+
+  <div class="card-row">
+
+
+    <!-- CARD –  -->
+    <div class="card">
+      <img src="jubileu-de-nossa-senhora-dos-remedios-em-senhora-dos-remedios.png" alt="Festa de Nossa Senhora dos Remédios">
+      <p>
+        <span class="card-title">Festa de Nossa Senhora dos Remédios</span> A Festa de Nossa Senhora dos Remédios é um dos momentos mais especiais da tradição religiosa e cultural da cidade. Todos os anos, fiéis se reúnem para celebrar a padroeira com missas, procissões, novenas e manifestações de fé que fortalecem o sentimento de comunidade.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+
+    <!-- CARD –  -->
+    <div class="card">
+      <img src="casacultural.jpg" alt="Casa de Cultura Dona Maria do Céu">
+      <p>
+        <span class="card-title">Casa de Cultura Dona Maria do Céu</span> – Um dos principais espaços culturais da cidade,
+        recebe exposições, oficinas, apresentações e ações educativas que preservam a memória e as tradições de Cruzeta.
+        É referência para quem deseja conhecer a arte e a história local.
+        <button class="read-more-btn">Saiba mais</button>
+      </p>
+    </div>
+
+
+  </div>
+</div>
+
+
+</body>
+</html>
